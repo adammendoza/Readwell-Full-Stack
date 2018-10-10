@@ -12,18 +12,6 @@
   font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
   background-color: rgb(244, 241, 234);
 
-  .logo-link {
-    margin: 3px;
-    font-size: 35px;
-    color: #382110;
-    cursor: pointer;
-    font-weight: 400;
-
-    .logo-link-left {
-      font-weight: 100;
-    }
-  }
-
   .nav-right {
     display: flex;
 
@@ -42,17 +30,36 @@
     }
   }
 }
+.logo-link {
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+  margin: 3px;
+  font-size: 35px;
+  color: #382110;
+  cursor: pointer;
+  font-weight: 400;
+
+  .logo-link-left {
+    font-weight: 100;
+  }
+}
+
+.session-form-backround {
+  background-image: image-url('backround.png');
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
 
 .session-form-container {
   display: flex;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 5px;
-  background-color: orange;
+  justify-content: center;
 
-  .session-form-box{
+  .session-form-box {
     background-color: white;
-    padding: 20px;
-    
+    // margin-top: 13px;
+
+    padding: 40px 200px 40px 200px;
   }
 }

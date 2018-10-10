@@ -58,34 +58,40 @@ class SessionForm extends React.Component {
 
   render() {
     return (
-      <div className="session-form-container">
-        <form onSubmit={this.handleSubmit} className="session-form-box">
-          <h3>{this.props.formHeader} Readwell</h3>
-          {this.renderErrors()}
-          <div className='session-form'>
-            {this.renderNameFeild()}
-            <label>Email Address</label>
-            <br/>
-              <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                className="session-form-input"
-                placeholder="you@yours.com"
-              />
-            <br/>
-            <label>Password</label>
-            <br/>
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                className="login-input"
-              />
-            <br/>
-            <input className="session-submit" type="submit" value={this.props.button} />
-            &nbsp;&nbsp;
-            {this.props.navLink}
-          </div>
-        </form>
+      <div className="session-form-backround">
+        <h1 className="logo-link">
+          <span className="logo-link-left">read</span>
+          <span className="logo-link-right">well</span>
+        </h1>
+        <div className="session-form-container">
+          <form onSubmit={this.handleSubmit} className="session-form-box">
+            <h3>{this.props.formHeader} Readwell</h3>
+            {this.renderErrors()}
+            <div className='session-form'>
+              {this.renderNameFeild()}
+              <label>Email Address</label>
+              <br/>
+                <input type="text"
+                  value={this.state.email}
+                  onChange={this.update('email')}
+                  className="session-form-input"
+                  placeholder="you@yours.com"
+                />
+              <br/>
+              <label>Password</label>
+              <br/>
+                <input type="password"
+                  value={this.state.password}
+                  onChange={this.update('password')}
+                  className="login-input"
+                />
+              <br/>
+              <input className="session-submit" type="submit" value={this.props.button} />
+              &nbsp;&nbsp;
+              {this.props.navLink}
+            </div>
+          </form>
+        </div>
       </div>
     )
   }
