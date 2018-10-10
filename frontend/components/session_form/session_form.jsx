@@ -26,7 +26,7 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     return(
-      <ul>
+      <ul className='errors-list'>
         {this.props.errors.map((error, i) =>(
           <li key={`error-${i}`}>
             {error}
@@ -82,9 +82,10 @@ class SessionForm extends React.Component {
               />
             <br/>
             <input className="session-submit" type="submit" value={this.props.button} />
+            &nbsp;&nbsp;
+            {this.props.navLink}
           </div>
         </form>
-        {this.props.navLink}
       </div>
     )
   }
