@@ -8,10 +8,10 @@ const Navbar = ({ currentUser, logout }) => {
       <Link to="/signup">Join</Link>
     </nav>
   );
-  const redirect = () => (
-    <Redirect to='/home'/>
+  const logoutButton = () => (
+    <button className="header-button" onClick={logout}>Log Out</button>
   );
-  return currentUser ? redirect() : sessionLinks();
+  return currentUser ? logoutButton() : sessionLinks();
 }
 
 export default Navbar;
