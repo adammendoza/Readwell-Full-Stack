@@ -4,7 +4,7 @@ import { Link, Redirect } from 'react-router-dom';
 const Navbar = ({ currentUser, logout }) => {
   const sessionLinks = () => (
     <nav className="navbar">
-      <h1 className="logo-link">
+      <h1 className="logo-link" >
         <span className="logo-link-left">read</span>
         <span className="logo-link-right">well</span>
       </h1>

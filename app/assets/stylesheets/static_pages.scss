@@ -123,6 +123,7 @@
         color: lightgrey;
       }
       .session-buttons{
+        margin-top: 20px;
         display: flex;
         align-items: center;
         flex-wrap: wrap;
@@ -142,6 +143,10 @@
           font-weight: normal;
         }
 
+        button {
+          cursor: pointer;
+        }
+
         .session-submit {
           background-color: #F4F1EA;
           line-height: 1;
@@ -150,6 +155,23 @@
           border-radius: 3px;
           font-size: 16px;
           padding: 12px 24px;
+        }
+      }
+      .signin {
+        justify-content: center;
+        input{
+          order: 1;
+          margin-right: 2px;
+        }
+        button{
+          order: 2;
+          margin-left: 2px;
+        }
+        .toggle-message{
+          order: 3;
+        }
+        a {
+          order: 4;
         }
       }
     }

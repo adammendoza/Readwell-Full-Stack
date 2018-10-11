@@ -11,6 +11,7 @@ class SessionForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
+    this.handleLogoClick = this.handleLogoClick.bind(this);
   }
 
   update(feild) {
@@ -32,6 +33,10 @@ class SessionForm extends React.Component {
       password: "demooo",
     }
     this.props.processFrom(user);
+  }
+
+  handleLogoClick() {
+    this.props.history.push("/");
   }
 
   renderErrors() {
@@ -104,7 +109,7 @@ class SessionForm extends React.Component {
   render() {
     return (
       <div className="session-form-backround">
-        <h1 className="logo-link">
+        <h1 className="logo-link" onClick={this.handleLogoClick}>
           <span className="logo-link-left">read</span>
           <span className="logo-link-right">well</span>
         </h1>
@@ -120,6 +125,7 @@ class SessionForm extends React.Component {
                 <input type="text"
                   value={this.state.email}
                   onChange={this.update('email')}
+
                   className="session-form-input"
                   placeholder="you@yours.com"
                 />
@@ -132,7 +138,7 @@ class SessionForm extends React.Component {
                   className="session-form-input"
                 />
               <br/>
-              <div className="session-buttons">
+              <div className={ this.props.formHeader === 'Sign up for' ? "session-buttons" : "session-buttons signin" } >
                 <input className="session-submit" type="submit" value={this.props.button} />
                 &nbsp;&nbsp;
                 {this.renderTogglePage()}
