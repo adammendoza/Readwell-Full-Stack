@@ -14,6 +14,10 @@ class SessionForm extends React.Component {
     this.handleLogoClick = this.handleLogoClick.bind(this);
   }
 
+  componentDidMount(){
+    this.props.clearSessionErrors();
+  }
+
   update(feild) {
     return e => this.setState({
       [feild]: e.currentTarget.value
@@ -40,15 +44,18 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
-    return(
-      <ul className='errors-list'>
-        {this.props.errors.map((error, i) =>(
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
+    if(this.props.errors.length > 0){
+      return(
+        <ul className='errors-list'>
+          {this.props.errors.map((error, i) =>(
+            <li key={`error-${i}`}>
+              {error}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+    return '';
   }
 
   renderNameFeild() {
