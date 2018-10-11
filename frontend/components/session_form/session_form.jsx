@@ -10,6 +10,7 @@ class SessionForm extends React.Component {
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
   }
 
   update(feild) {
@@ -21,6 +22,15 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
+    this.props.processFrom(user);
+  }
+
+  handleDemoSubmit(e) {
+    e.preventDefault();
+    const user = {
+      email: "demo@demosaregreat.com",
+      password: "demooo",
+    }
     this.props.processFrom(user);
   }
 
@@ -49,12 +59,47 @@ class SessionForm extends React.Component {
           />
       </div>
     );
-    if(this.props.formHeader === 'Sign up for'){
+    if(this.props.formHeader === 'Sign up for') {
       return feild();
-    } else {
+    }
+      return '';
+  }
+
+  renderSignupMessage() {
+    const message = () => (
+      <p className="signup-message">Sign up to see what your friends are reading, get book recommendations, and join the world's largest community of readers.</p>
+    );
+    if(this.props.formHeader === 'Sign up for') {
+      return message();
+    }
+    return '';
+  }
+
+  renderDemoButton() {
+    const button = () => (
+      <button
+        onClick={this.handleDemoSubmit}
+        className="session-submit"
+        >Demo User
+      </button>
+    );
+    if (this.props.formHeader === 'Sign up for') {
       return '';
     }
+    return button();
   }
+
+  renderTogglePage() {
+    if (this.props.formHeader === 'Sign up for') {
+      return (
+        <p className="toggle-message">Already a member?</p>
+      );
+    }
+    return (
+      <p className="toggle-message">Not a member?</p>
+    );
+  };
+
 
   render() {
     return (
@@ -65,7 +110,8 @@ class SessionForm extends React.Component {
         </h1>
         <div className="session-form-container">
           <form onSubmit={this.handleSubmit} className="session-form-box">
-            <h3>{this.props.formHeader} Readwell</h3>
+            <h2>{this.props.formHeader} Readwell</h2>
+            {this.renderSignupMessage()}
             {this.renderErrors()}
             <div className='session-form'>
               {this.renderNameFeild()}
@@ -83,15 +129,20 @@ class SessionForm extends React.Component {
                 <input type="password"
                   value={this.state.password}
                   onChange={this.update('password')}
-                  className="login-input"
+                  className="session-form-input"
                 />
               <br/>
-              <input className="session-submit" type="submit" value={this.props.button} />
-              &nbsp;&nbsp;
-              {this.props.navLink}
+              <div className="session-buttons">
+                <input className="session-submit" type="submit" value={this.props.button} />
+                &nbsp;&nbsp;
+                {this.renderTogglePage()}
+                {this.props.navLink}
+                {this.renderDemoButton()}
+              </div>
             </div>
           </form>
         </div>
+        <img src='../../app/assets/images/goodreads_backround.jpg' />
       </div>
     )
   }

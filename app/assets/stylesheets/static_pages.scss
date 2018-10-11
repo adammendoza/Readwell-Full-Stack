@@ -9,7 +9,6 @@
   align-items: center;
   padding: 0px 10px 0px 10px;
   box-shadow: 1px 2px rgba(0,0,0,0.15);
-  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
   background-color: rgb(244, 241, 234);
 
   .nav-right {
@@ -31,7 +30,6 @@
   }
 }
 .logo-link {
-  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
   margin: 3px;
   font-size: 35px;
   color: #382110;
@@ -50,21 +48,94 @@
   left: 0;
   height: 100%;
   width: 100%;
+  display: flex;
+  justify-content: flex-start;
 
   .logo-link {
     margin-left: 15px;
     margin-top: 20px;
+    margin-right: 15px;
   }
 }
 
 .session-form-container {
   display: flex;
   justify-content: center;
+  width: 620px;
 
   .session-form-box {
     background-color: white;
-    // margin-top: 13px;
+    width: 100%;
+    border: 1px solid #d0d0c8;
+    border-radius: 4px;
+    box-shadow: 0px 1px 1px #d0d0c8;
+    margin: auto;
+    margin-top: 17px;
+    padding: 25px 45px 25px 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    padding: 40px 200px 40px 200px;
+    h2 {
+      font-size: 20px;
+      font-weight: bold;
+      // color: #382110;
+    }
+
+    p {
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .session-form {
+
+      label{
+        font-size: 12px;
+        font-weight: bold;
+      }
+      .session-form-input{
+        width: 300px;
+        height: 20px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        font-size: 15px;
+        font-weight: bold;
+        padding: 10px 4px;
+
+      }
+      ::placeholder {
+        color: lightgrey;
+      }
+      .session-buttons{
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 300px;
+
+        .toggle-message {
+          margin-left: 24px;
+          font-size: 12px;
+          text-align: left;
+        }
+
+        a {
+          font-size: 12px;
+          margin-left: 5px;
+          text-decoration: none;
+          color: #00635d;
+          font-weight: normal;
+        }
+
+        .session-submit {
+          background-color: #F4F1EA;
+          line-height: 1;
+          text-decoration: none;
+          border: 1px solid #D6D0C4;
+          border-radius: 3px;
+          font-size: 16px;
+          padding: 12px 24px;
+        }
+      }
+    }
   }
 }
