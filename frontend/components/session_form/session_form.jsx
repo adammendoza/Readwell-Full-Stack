@@ -142,7 +142,6 @@ class SessionForm extends React.Component {
             </div>
           </form>
         </div>
-        <img src='../../app/assets/images/goodreads_backround.jpg' />
       </div>
     )
   }

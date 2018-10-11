@@ -27,6 +27,21 @@
         color: white;
       }
     }
+    .header-button {
+      display: block;
+      line-height: 52px;
+      color: #382110;
+      text-decoration: none;
+      padding: 0px 30px 0px 30px;
+      font-size: 15px;
+      background: transparent;
+      border: none;
+
+      &:hover{
+        background-color: black;
+        color: white;
+      }
+    }
   }
 }
 .logo-link {
@@ -35,6 +50,7 @@
   color: #382110;
   cursor: pointer;
   font-weight: 400;
+  opacity: 0.8;
 
   .logo-link-left {
     font-weight: 100;
