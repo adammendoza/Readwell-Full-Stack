@@ -1,7 +1,10 @@
 import React from 'react';
+import BookIndexContainer from './book/book_index_container';
 
 const Home = () => (
-  <div>USER HOME</div>
+  <div>
+    <BookIndexContainer />
+  </div>
 );
 
 export default Home;
