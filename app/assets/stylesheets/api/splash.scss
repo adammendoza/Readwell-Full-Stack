@@ -1,0 +1,41 @@
+.splash {
+  width: 100%;
+  height: 295px;
+  background-image: image-url('books.jpg');
+  display: flex;
+  justify-content: space-between;
+
+  .welcome {
+    flex-grow: 4;
+
+    .headline {
+      background-image: image-url('headline.png');
+      height: 116px;
+      width: 446px;
+      margin: auto;
+      margin-top: 56px;
+    }
+  }
+
+  .splash-signup {
+    flex-grow: 1;
+    padding-top: 40px;
+
+    p {
+      font-size: 18px;
+      color: #000;
+      position: relative;
+      left: 2px;
+    }
+
+    a {
+      padding: 9px;
+      border-radius: 4px;
+      background-color: #fdd05f;
+      font-size: 18px;
+      line-height: 22px;
+      text-decoration: none;
+      color: #333333;
+    }
+  }
+}
