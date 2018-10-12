@@ -8,7 +8,7 @@ import Home from './home';
 
 
 const Layout = ({ currentUser }) => {
-  if( currentUser ){
+  if(currentUser){
     return (
       <div>
         <header>
@@ -29,9 +29,9 @@ const Layout = ({ currentUser }) => {
         </header>
 
         <Switch>
-          <AuthRoute exact path='/' component={Splash}/>
+          <AuthRoute exact path='/splash' component={Splash}/>
+          <Redirect to="/splash"/>
         </Switch>
-        <Redirect to="/"/>
       </div>
     );
   }
