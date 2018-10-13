@@ -1,13 +1,18 @@
 import { connect } from 'react-redux';
 import BookIndex from './book_index';
+import { fetchAllBooks } from '../../actions/book_actions';
 
 
 const mapStateTopProps = state => {
-  return {};
+  return {
+    books: Object.values(state.entities.books)
+  };
 };
 
 const mapDispatchToProps = dispatch => {
-  return {};
+  return {
+    fetchAllBooks: () => dispatch(fetchAllBooks())
+  };
 };
 
 

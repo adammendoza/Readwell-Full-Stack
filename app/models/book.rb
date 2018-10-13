@@ -15,4 +15,6 @@
 class Book < ApplicationRecord
   validates :title, :author, :isbn, :year, presence: true
   validates :isbn, uniqueness: true
+
+  has_one_attached :cover_img
 end
