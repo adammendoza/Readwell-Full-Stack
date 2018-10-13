@@ -1,3 +1,35 @@
 // Place all the styles related to the api/books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.book-index {
+  margin: 20px 5px 10px 20px;
+  width: 625px;
+
+  h3 {
+    color: #382110;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 1px solid lightgrey;
+    margin-bottom: 10px;
+  }
+
+   ul {
+
+
+     a {
+     margin: 5px;
+
+     img {
+       width: 115px;
+       margin-left: auto;
+       margin-right: auto;
+       height: 180px;
+       bottom: 0;
+     }
+   }
+ }
+
+}

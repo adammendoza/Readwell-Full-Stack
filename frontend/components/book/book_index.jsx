@@ -1,6 +1,5 @@
 import React from 'react';
 import merge from 'lodash';
-import { Link } from 'react-router-dom';
 import BookIndexItem from './book_index_item';
 
 class BookIndex extends React.Component {
@@ -15,21 +14,17 @@ class BookIndex extends React.Component {
   render(){
     let books;
     if (this.props.books.length > 0){
-      books = this.props.books
-      books = books.map(book =>{
-        return(
-          <Link to={`/books/${book.id}`}>
-            <img src={book.cover_img}></img>
-          </Link>
-        );
-      });
+      books = this.props.books.map(book => <BookIndexItem key={book.id} book={book}/>);
     } else {
       books = '';
     }
     return (
-        <ul>
-          {books}
-        </ul>
+      <div className="book-index">
+        <h3>Classics</h3>
+          <ul>
+            {books}
+          </ul>
+      </div>
       );
     }
 };
