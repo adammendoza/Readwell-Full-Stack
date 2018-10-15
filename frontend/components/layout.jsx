@@ -4,6 +4,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Splash from './splash';
 import Home from './home';
+import BookShowPage from './book_show_page';
 
 
 
@@ -16,7 +17,8 @@ const Layout = ({ currentUser }) => {
         </header>
 
         <Switch>
-          <ProtectedRoute exact path='/home' component={Home}/>
+          <Route exact path='/home' component={Home}/>
+          <Route path='/books/:bookId' component={BookShowPage}/>
           <Redirect to="/home"/>
         </Switch>
       </div>
@@ -30,6 +32,8 @@ const Layout = ({ currentUser }) => {
 
         <Switch>
           <AuthRoute exact path='/splash' component={Splash}/>
+          <Route path='/home' component={Home}/>
+          <Route path='/books/:bookId' component={BookShowPage}/>
           <Redirect to="/splash"/>
         </Switch>
       </div>

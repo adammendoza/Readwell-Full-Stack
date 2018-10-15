@@ -17,7 +17,8 @@
   }
 
    ul {
-
+     display: flex;
+     flex-wrap: wrap;
 
      a {
      margin: 5px;
@@ -28,6 +29,25 @@
        margin-right: auto;
        height: 180px;
        bottom: 0;
+     }
+   }
+   .book-image-link {
+     position: relative;
+     .book-pop-up {
+       padding: 10px;
+       display: block;
+       position: absolute;
+       font-size: 12px;
+       line-height: 18px;
+       z-index: 5;
+       height: auto;
+       width: 200px;
+       color: #333333;
+       background-color: white;
+       border: 6px solid #f6e3d4;
+       border-radius: 10px;
+       top: 30px;
+       left: 120px;
      }
    }
  }
