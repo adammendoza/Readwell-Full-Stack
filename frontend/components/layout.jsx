@@ -33,7 +33,7 @@ const Layout = ({ currentUser }) => {
         <Switch>
           <AuthRoute exact path='/splash' component={Splash}/>
           <Route path='/home' component={Home}/>
-          <Route path='/books/:bookId' component={BookShowPage}/>
+          <Route path='/books/:bookId' component={BookShowContainer}/>
           <Redirect to="/splash"/>
         </Switch>
       </div>

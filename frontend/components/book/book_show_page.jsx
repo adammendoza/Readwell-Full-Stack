@@ -22,14 +22,18 @@ class BookShowPage extends React.Component {
     return (
       <div className="book-show-page">
         <img src={book.cover_img}/>
-        <h1>{book.title}</h1>
-        <h2>by {book.author}</h2>
-        <p>Published {book.year}</p>
-        <label>ISBN
-        <p>{book.isbn}</p></label>
-        <label>Genre
-        <p>{book.genre}</p></label>
 
+        <div className="book-info">
+          <h1>{book.title}</h1>
+          <h2>by {book.author}</h2>
+          <span>Published {book.year}</span>
+          <div className="isbn"><span>ISBN</span> {book.isbn}</div>
+        </div>
+
+        <div className="genre">
+          <h3>Genre</h3>
+          <p>{book.genre}</p>
+        </div>
       </div>
     );
   }
