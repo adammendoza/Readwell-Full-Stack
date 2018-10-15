@@ -5,6 +5,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Splash from './splash';
 import Home from './home';
 import BookShowContainer from './book/book_show_container';
+import AddBookFormContainer from './book/add_book_form_container';
 
 
 
@@ -19,6 +20,7 @@ const Layout = ({ currentUser }) => {
         <Switch>
           <Route exact path='/home' component={Home}/>
           <Route path='/books/:bookId' component={BookShowContainer}/>
+          <Route exact path="/book/new" component={AddBookFormContainer}/>
           <Redirect to="/home"/>
         </Switch>
       </div>

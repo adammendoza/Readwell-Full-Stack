@@ -1,5 +1,6 @@
 import React from 'react';
 import merge from 'lodash';
+import { Link } from 'react-router-dom';
 import BookIndexItem from './book_index_item';
 
 class BookIndex extends React.Component {
@@ -19,11 +20,14 @@ class BookIndex extends React.Component {
       books = '';
     }
     return (
-      <div className="book-index">
-        <h3>Classics</h3>
-          <ul>
-            {books}
-          </ul>
+      <div className="home-page">
+        <div className="book-index">
+          <h3>Classics</h3>
+            <ul>
+              {books}
+            </ul>
+        </div>
+        <Link to="/book/new">Manually add a book</Link>
       </div>
       );
     }

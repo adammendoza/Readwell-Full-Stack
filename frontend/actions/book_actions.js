@@ -13,6 +13,11 @@ const receiveBook = book => ({
   book
 });
 
+const receiveErrors = errors => ({
+  type: RECEIVE_BOOK_ERRORS,
+  errors
+});
+
 export const fetchAllBooks = () => dispatch => (
   BookAPIUtil.getBooks().then(books => (
     dispatch(receiveAllBooks(books))
@@ -22,5 +27,13 @@ export const fetchAllBooks = () => dispatch => (
 export const fetchBook = id => dispatch => (
   BookAPIUtil.getBook(id).then(book => (
     dispatch(receiveBook(book))
+  ))
+);
+
+export const postBook = book => dispatch => (
+  BookAPIUtil.postBook(book).then(book => (
+    dispatch(receiveBook(book))
+  ), err =>(
+    dispatch(receiveErrors(err.responseJSON))
   ))
 );
