@@ -4,7 +4,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Splash from './splash';
 import Home from './home';
-import BookShowPage from './book_show_page';
+import BookShowContainer from './book/book_show_container';
 
 
 
@@ -18,7 +18,7 @@ const Layout = ({ currentUser }) => {
 
         <Switch>
           <Route exact path='/home' component={Home}/>
-          <Route path='/books/:bookId' component={BookShowPage}/>
+          <Route path='/books/:bookId' component={BookShowContainer}/>
           <Redirect to="/home"/>
         </Switch>
       </div>
