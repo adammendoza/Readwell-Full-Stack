@@ -5,3 +5,32 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.destroy_all
+Book.destroy_all
+
+demo = User.create(email:'demo@demosaregreat.com', name: 'Demo McDemoson', password: 'starwars');
+
+b1 = Book.create(title: "1984", author: 'George Orewell', isbn: '0451524934', genre: 'Science Fiction', year: 1949)
+f1 = File.open("#{Rails.root}/app/assets/images/1984.jpg")
+b1.cover_img.attach(io: f1, filename: '1984.jpg')
+
+b2 = Book.create(title: "The Art of War", author: 'Sun Tzu', isbn: '1590302257', genre: 'Philosophy', year: -771)
+f2 = File.open("#{Rails.root}/app/assets/images/the_art_of_war.jpg")
+b2.cover_img.attach(io: f2, filename: 'the_art_of_war.jpg')
+
+b3 = Book.create(title: "Gone with the Wind", author: 'Margaret Mitchell', isbn: '978-0-446-36538-3', genre: 'Historical Fiction', year: 1936)
+f3 = File.open("#{Rails.root}/app/assets/images/gone_with_the_wind.jpg")
+b3.cover_img.attach(io: f3, filename: 'gone_with_the_wind.jpg')
+
+b4 = Book.create(title: "The Catcher in the Rye", author: 'J.D. Salinger', isbn: '0316769177', genre: 'Young Adult', year: 1951)
+f4 = File.open("#{Rails.root}/app/assets/images/catcher.jpg")
+b4.cover_img.attach(io: f4, filename: 'catcher.jpg')
+
+b5 = Book.create(title: "Notes from Underground", author: 'Fyodor Dostoyevsky', isbn: '067973452X', genre: 'Philosophy', year: 1864)
+f5 = File.open("#{Rails.root}/app/assets/images/notes-from-underground.jpg")
+b5.cover_img.attach(io: f5, filename: 'notes-from-underground.jpg')
+
+b6 = Book.create(title: "Infinite Jest", author: 'David Foster Wallace', isbn: '0316920045', genre: 'Fiction', year: 1996)
+f6 = File.open("#{Rails.root}/app/assets/images/jest.jpg")
+b6.cover_img.attach(io: f6, filename: 'jest.jpg')

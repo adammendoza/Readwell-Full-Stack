@@ -8,6 +8,7 @@ class BookIndex extends React.Component {
   }
 
   componentDidMount(){
+    debugger;
     this.props.fetchAllBooks();
   }
 
