@@ -9,12 +9,15 @@ class AddBookForm extends React.Component {
       author: '',
       isbn: '',
       year: '',
-      genre: ''
+      genre: '',
+      cover_img: null
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleFile = this.handleFile.bind(this);
   }
 
   update(feild) {
+    console.log(this.state);
     return e => this.setState({
       [feild]: e.currentTarget.value
     });
@@ -22,52 +25,91 @@ class AddBookForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const book = merge({}, this.state);
+    let book = new FormData();
+    book.append('book[title]', this.state.title);
+    book.append('book[author]', this.state.author);
+    book.append('book[isbn]', this.state.isbn);
+    book.append('book[genre]', this.state.genre);
+    book.append('book[year]', this.state.year);
+    book.append('book[cover_img]', this.state.cover_img);
     this.props.postBook(book);
   }
 
+  handleFile(e) {
+    const file = e.currentTarget.files[0];
+    this.setState({ cover_img: file });
+    console.log(this.state);
+  }
+
   render(){
+    // help from: https://webdesign.tutsplus.com/tutorials/building-responsive-forms-with-flexbox--cms-26767
     return (
 
       <div className="add-book-form">
-        <h1>Add a New Book</h1>
-        <form onSumbit={this.handleSubmit}>
-          <label>title</label>
-          <input
-            type="text"
-            onChange={this.update('title')}
-            value={this.state.title}
-            />
+        <form onSubmit={this.handleSubmit}>
+          <ul className="flex-outer">
+            <h1>Add a New Book</h1>
+            <li>
+              <label>title <span>*</span></label>
+              <input
+                type="text"
+                onChange={this.update('title')}
+                value={this.state.title}
+                />
+            </li>
 
-          <label>author</label>
-          <input
-            type="text"
-            onChange={this.update('author')}
-            value={this.state.author}
-            />
+            <li>
+              <label>author <span>*</span></label>
+              <input
+                className="author-input"
+                type="text"
+                onChange={this.update('author')}
+                value={this.state.author}
+                />
+            </li>
 
-          <label>isbn</label>
-          <input
-            type="text"
-            onChange={this.update('isbn')}
-            value={this.state.isbn}
-            />
+            <li>
+              <label>isbn</label>
+              <input
+                className="isbn-input"
+                type="text"
+                onChange={this.update('isbn')}
+                value={this.state.isbn}
+                />
+            </li>
 
-          <label>published</label>
-          <input
-            type="text"
-            onChange={this.update('year')}
-            value={this.state.year}
-            />
+            <li>
+              <label className="pub-label">published</label>
+              <span className="pub-year">year:</span>
+              <input
+                className="year-input"
+                type="text"
+                onChange={this.update('year')}
+                value={this.state.year}
+                />
+            </li>
 
-          <label>genre</label>
-          <input
-            type="text"
-            onChange={this.update('genre')}
-            value={this.state.genre}
-            />
+            <li>
+              <label>genre</label>
+              <input
+                className="genre-input"
+                type="text"
+                onChange={this.update('genre')}
+                value={this.state.genre}
+                />
+            </li>
 
-          <input type="submit" value="Create Book"/>
+            <li>
+              <input type="submit" value="Create Book"/>
+            </li>
+          </ul>
+          <div className="upload-cover">
+            <p>Add a cover image for this book</p>
+            <input
+              type="file"
+              onChange={this.handleFile}
+              />
+          </div>
         </form>
       </div>
     )

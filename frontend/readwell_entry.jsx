@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root.jsx';
 import { fetchAllBooks, fetchBook } from './actions/book_actions';
-
+import { postBook } from './util/book_api_util';
 document.addEventListener('DOMContentLoaded', () =>{
   const root = document.getElementById('root');
   let store;
@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () =>{
   window.dispatch = store.dispatch;
   window.fetchAllBooks = fetchAllBooks;
   window.fetchBook = fetchBook;
+  window.postBook = postBook;
   // #NB
 
   ReactDOM.render(<Root store={store} />, root);

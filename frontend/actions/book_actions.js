@@ -2,16 +2,20 @@ import * as BookAPIUtil from '../util/book_api_util';
 
 export const RECEIVE_ALL_BOOKS = 'RECEIVE_ALL_BOOKS';
 export const RECEIVE_BOOK = 'RECEIVE_BOOK';
+export const RECEIVE_BOOK_ERRORS = 'RECEIVE_BOOK_ERRORS';
 
 const receiveAllBooks = books => ({
   type: RECEIVE_ALL_BOOKS,
   books
 });
 
-const receiveBook = book => ({
-  type: RECEIVE_BOOK,
-  book
-});
+const receiveBook = book => {
+  debugger;
+  return {
+    type: RECEIVE_BOOK,
+    book
+  }
+};
 
 const receiveErrors = errors => ({
   type: RECEIVE_BOOK_ERRORS,
@@ -30,10 +34,10 @@ export const fetchBook = id => dispatch => (
   ))
 );
 
-export const postBook = book => dispatch => (
-  BookAPIUtil.postBook(book).then(book => (
+export const postBook = book => dispatch => {
+  return BookAPIUtil.postBook(book).then(book => (
     dispatch(receiveBook(book))
   ), err =>(
     dispatch(receiveErrors(err.responseJSON))
   ))
-);
+};

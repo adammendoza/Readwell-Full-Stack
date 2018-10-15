@@ -16,6 +16,8 @@ export const postBook = book => {
   return $.ajax({
     method: 'POST',
     url: `api/books`,
-    data: { book }
+    contentType: false,
+    processData: false,
+    data: book
   });
 };
