@@ -5,7 +5,7 @@
 #  id         :bigint(8)        not null, primary key
 #  title      :string           not null
 #  author     :string           not null
-#  isbn       :integer          not null
+#  isbn       :text             not null
 #  genre      :string
 #  year       :integer          not null
 #  created_at :datetime         not null
