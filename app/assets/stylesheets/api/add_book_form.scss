@@ -6,9 +6,10 @@
 
   form {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 
     .upload-cover {
+      margin-left: 50px;
       padding: 10px;
       position: relative;
       bottom: 10px;
