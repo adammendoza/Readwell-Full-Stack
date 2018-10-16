@@ -14,6 +14,27 @@ class AddBookForm extends React.Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this);
+
+  }
+
+  renderErrors() {
+    const errors = this.props.errors
+    const word = errors.length > 1 ? 'errors' : 'error';
+    if(errors.length > 0){
+      return(
+        <div className="error-display">
+          <h2>{errors.length} {word} prohibited this book from being saved:</h2>
+          <ul className='errors-list'>
+            {errors.map((error, i) =>(
+              <li key={`error-${i}`}>
+                {error}
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    }
+    return '';
   }
 
   update(feild) {
@@ -24,14 +45,18 @@ class AddBookForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let book = new FormData();
-    book.append('book[title]', this.state.title);
-    book.append('book[author]', this.state.author);
-    book.append('book[isbn]', this.state.isbn);
-    book.append('book[genre]', this.state.genre);
-    book.append('book[year]', this.state.year);
-    book.append('book[cover_img]', this.state.cover_img);
-    this.props.postBook(book);
+    if(this.state.cover_img === null){
+      this.props.receiveErrors(['You must upload a cover image'])
+    } else {
+      let book = new FormData();
+      book.append('book[title]', this.state.title);
+      book.append('book[author]', this.state.author);
+      book.append('book[isbn]', this.state.isbn);
+      book.append('book[genre]', this.state.genre);
+      book.append('book[year]', this.state.year);
+      book.append('book[cover_img]', this.state.cover_img);
+      this.props.postBook(book);
+    }
   }
 
   handleFile(e) {
@@ -47,6 +72,7 @@ class AddBookForm extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <ul className="flex-outer">
             <h1>Add a New Book</h1>
+            {this.renderErrors()}
             <li>
               <label>title <span>*</span></label>
               <input
