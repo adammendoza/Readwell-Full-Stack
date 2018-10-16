@@ -118,5 +118,9 @@
       padding: 8px 12px;
       background-color: #F4F1EA;
       margin-top: 20px;
+
+      &:hover {
+        background-color: #ede6d6;
+      }
   }
 }

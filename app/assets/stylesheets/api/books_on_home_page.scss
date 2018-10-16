@@ -53,8 +53,31 @@
          border: 6px solid #f6e3d4;
          border-radius: 10px;
          top: 30px;
-         left: 120px;
+         left: 130px;
          box-shadow: 2px 2px 2px grey;
+
+         h2 {
+           font-family: "Merriweather", "Georgia", serif;
+           line-height: 21px;
+           font-size: 14px;
+           color: #333333;
+           font-weight: bold;
+
+         }
+
+         .pop-up-author {
+           font-family: "Merriweather", "Georgia", serif;
+           margin-bottom: 5px;
+           margin-top: 5px;
+         }
+
+         .pop-up-year {
+           font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+           color: #777777;
+           font-size: 11px;
+           line-height: 14px;
+           margin: 5px 0px 5px 0px;
+         }
 
        }
      }

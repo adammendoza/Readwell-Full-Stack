@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import AddBookForm from './add_book_form';
 import { postBook, receiveErrors } from '../../actions/book_actions';
+import { withRouter } from 'react-router-dom';
+
 
 const mapStateToProps = ({ errors }, ownProps) => {
   return {
@@ -16,4 +18,4 @@ const mapDisptachToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDisptachToProps)(AddBookForm);
+export default withRouter(connect(mapStateToProps, mapDisptachToProps)(AddBookForm));

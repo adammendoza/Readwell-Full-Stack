@@ -10,11 +10,10 @@ class AddBookForm extends React.Component {
       isbn: '',
       year: '',
       genre: '',
-      cover_img: null
+      cover_img: null,
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this);
-
   }
 
   renderErrors() {

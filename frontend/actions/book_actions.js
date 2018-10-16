@@ -36,9 +36,9 @@ export const fetchBook = id => dispatch => (
 );
 
 export const postBook = book => dispatch => {
-  return BookAPIUtil.postBook(book).then(book => (
-    dispatch(receiveBook(book))
-  ), err => {
-    return dispatch(receiveErrors(err.responseJSON))
+  return BookAPIUtil.postBook(book).then(book => {
+    dispatch(receiveBook(book));
+  }, err => {
+    dispatch(receiveErrors(err.responseJSON))
   })
 };
