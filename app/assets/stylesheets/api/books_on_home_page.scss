@@ -32,10 +32,13 @@
          margin-right: auto;
          height: 180px;
          bottom: 0;
+         box-shadow: 1px 1px 1px grey;
+
        }
      }
      .book-image-link {
        position: relative;
+
        .book-pop-up {
          padding: 10px;
          display: block;
@@ -51,6 +54,8 @@
          border-radius: 10px;
          top: 30px;
          left: 120px;
+         box-shadow: 2px 2px 2px grey;
+
        }
      }
    }
