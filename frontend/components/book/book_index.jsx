@@ -22,7 +22,7 @@ class BookIndex extends React.Component {
     return (
       <div className="home-page">
         <div className="book-index">
-          <h3>Classics</h3>
+          <h3>Books</h3>
             <ul>
               {books}
             </ul>
