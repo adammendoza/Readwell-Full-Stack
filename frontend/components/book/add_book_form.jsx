@@ -32,7 +32,6 @@ class AddBookForm extends React.Component {
     book.append('book[year]', this.state.year);
     book.append('book[cover_img]', this.state.cover_img);
     this.props.postBook(book);
-    this.props.history.push('/home');
   }
 
   handleFile(e) {

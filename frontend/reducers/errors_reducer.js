@@ -4,7 +4,7 @@ import bookErrorsReducer from './book_errors_reducer';
 
 const errorsReducer = combineReducers({
   session: sessionErrorsReducer,
-  book: bookErrorsReducer
+  books: bookErrorsReducer
 });
 
 export default errorsReducer;

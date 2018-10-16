@@ -16,10 +16,12 @@ const receiveBook = book => {
   }
 };
 
-const receiveErrors = errors => ({
-  type: RECEIVE_BOOK_ERRORS,
-  errors
-});
+const receiveErrors = errors => {
+  return{
+    type: RECEIVE_BOOK_ERRORS,
+    errors
+  };
+};
 
 export const fetchAllBooks = () => dispatch => (
   BookAPIUtil.getBooks().then(books => (
