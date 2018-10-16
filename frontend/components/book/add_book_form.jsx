@@ -11,6 +11,7 @@ class AddBookForm extends React.Component {
       year: '',
       genre: '',
       cover_img: null,
+      photo_url: null
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this);
@@ -54,19 +55,27 @@ class AddBookForm extends React.Component {
       book.append('book[genre]', this.state.genre);
       book.append('book[year]', this.state.year);
       book.append('book[cover_img]', this.state.cover_img);
-      this.props.postBook(book);
+      this.props.postBook(book).then(res => {
+        this.props.history.push(`/books/${res.book.id}`);
+      });
     }
   }
 
   handleFile(e) {
     const file = e.currentTarget.files[0];
-    this.setState({ cover_img: file });
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({ cover_img: file, photo_url: fileReader.result });
+    }
+    if(file){
+      fileReader.readAsDataURL(file);
+    }
   }
 
   render(){
     // help from: https://webdesign.tutsplus.com/tutorials/building-responsive-forms-with-flexbox--cms-26767
+    const preview = this.state.photo_url ? <img className="book-image-preview" src={this.state.photo_url} /> : null;
     return (
-
       <div className="add-book-form">
         <form onSubmit={this.handleSubmit}>
           <ul className="flex-outer">
@@ -132,6 +141,7 @@ class AddBookForm extends React.Component {
               type="file"
               onChange={this.handleFile}
               />
+            {preview}
           </div>
         </form>
       </div>

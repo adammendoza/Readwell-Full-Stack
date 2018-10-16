@@ -26,7 +26,7 @@ class BookIndexItem extends React.Component {
           to={`/books/${this.props.book.id}`}
           onMouseEnter={this.hoverToggleOn}
           onMouseLeave={this.hoverToggleOff}
-          ><img src={this.props.book.cover_img}/></Link>
+          ><img className="book-image"src={this.props.book.cover_img}/></Link>
         {this.state.hover && <BookPopUp book={this.props.book} hover={this.state.hover}/>}
       </div>
     );
