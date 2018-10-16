@@ -12,4 +12,16 @@
 class Bookshelf < ApplicationRecord
   validates :name, :creator_id, presence: true
   validates_uniqueness_of :name, :scope => [:creator_id]
+
+  belongs_to :creator,
+  foreign_key: :creator_id,
+  class_name: :User
+
+  has_many :shelvings,
+  foreign_key: :bookshelf_id,
+  class_name: :Shelving
+
+  has_many :books,
+  through: :shelvings,
+  source: :book
 end

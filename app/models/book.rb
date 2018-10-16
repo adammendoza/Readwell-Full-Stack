@@ -17,4 +17,12 @@ class Book < ApplicationRecord
   validates :isbn, uniqueness: true
 
   has_one_attached :cover_img
+
+  has_many :shelvings,
+  foreign_key: :book_id,
+  class_name: :Shelving
+
+  has_many :bookshelves,
+  through: :shelvings,
+  source: :bookshelf
 end

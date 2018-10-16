@@ -73,6 +73,7 @@ class AddBookForm extends React.Component {
   }
 
   render(){
+    // help from: AJ Gosling
     // help from: https://webdesign.tutsplus.com/tutorials/building-responsive-forms-with-flexbox--cms-26767
     const preview = this.state.photo_url ? <img className="book-image-preview" src={this.state.photo_url} /> : null;
     return (
