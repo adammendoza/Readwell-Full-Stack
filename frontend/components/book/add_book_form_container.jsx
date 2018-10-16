@@ -3,7 +3,7 @@ import AddBookForm from './add_book_form';
 import { postBook } from '../../actions/book_actions';
 
 
-const mapStateToProps = ({ errors }) => {
+const mapStateToProps = ({ errors }, ownProps) => {
   return {
     errors: errors.book,
   };

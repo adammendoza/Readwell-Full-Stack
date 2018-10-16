@@ -17,7 +17,6 @@ class AddBookForm extends React.Component {
   }
 
   update(feild) {
-    console.log(this.state);
     return e => this.setState({
       [feild]: e.currentTarget.value
     });
@@ -33,12 +32,12 @@ class AddBookForm extends React.Component {
     book.append('book[year]', this.state.year);
     book.append('book[cover_img]', this.state.cover_img);
     this.props.postBook(book);
+    this.props.history.push('/home');
   }
 
   handleFile(e) {
     const file = e.currentTarget.files[0];
     this.setState({ cover_img: file });
-    console.log(this.state);
   }
 
   render(){

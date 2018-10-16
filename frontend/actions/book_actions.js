@@ -10,7 +10,6 @@ const receiveAllBooks = books => ({
 });
 
 const receiveBook = book => {
-  debugger;
   return {
     type: RECEIVE_BOOK,
     book
