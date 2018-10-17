@@ -15,11 +15,3 @@ json.books do
     end
   end
 end
-
-json.shelvings do
-  @shelvings.each do |shelving|
-    json.set! shelving.id do
-      json.extract! shelving, :book_id, :bookshelf_id
-    end
-  end
-end

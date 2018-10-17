@@ -4,10 +4,13 @@ import ProfileDropDown from './profile_dropdown.jsx';
 
 const Navbar = ({ currentUser, logout }) => {
   const logoLink = () => (
-    <Link to='/'className="logo-link">
-      <span className="logo-link-left">read</span>
-      <span className="logo-link-right">well</span>
-    </Link>
+    <div className="nav-left">
+      <Link to='/'className="logo-link">
+        <span className="logo-link-left">read</span>
+        <span className="logo-link-right">well</span>
+      </Link>
+      {currentUser ? <Link className="my-books-link" to='/shelves/all'>My Books</Link> : null}
+    </div>
   );
   const sessionLinks = () => (
     <nav className="navbar">
@@ -23,7 +26,6 @@ const Navbar = ({ currentUser, logout }) => {
   const logoutButton = () => (
     <nav className="navbar">
       {logoLink()}
-
       <div className="nav-right">
         <button className="header-button" onClick={logout}>Log Out</button>
       </div>
@@ -32,7 +34,6 @@ const Navbar = ({ currentUser, logout }) => {
   const profileDropDown = () => (
     <nav className="navbar">
       {logoLink()}
-
       <ProfileDropDown currentUser={currentUser} logout={logout}/>
     </nav>
   );

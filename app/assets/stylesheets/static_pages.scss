@@ -69,6 +69,11 @@
     background-color: #382110;
   }
 
+  .nav-left {
+    display: flex;
+    align-items: center;
+  }
+
   .nav-right {
     display: flex;
 
@@ -81,7 +86,7 @@
       font-size: 15px;
 
       &:hover{
-        background-color: black;
+        background-color: #382110;
         color: white;
       }
     }
@@ -96,7 +101,7 @@
       border: none;
 
       &:hover{
-        background-color: black;
+        background-color: #382110;
         color: white;
       }
     }
@@ -110,9 +115,25 @@
   font-weight: 400;
   opacity: 0.8;
   text-decoration: none;
+  max-height: 52;
 
   .logo-link-left {
     font-weight: 100;
+  }
+
+}
+.my-books-link {
+  display: inline-block;
+  line-height: 52px;
+  color: #382110;
+  text-decoration: none;
+  padding: 0px 25px 0px 25px;
+  font-size: 16px;
+  margin-left: 10px;
+  
+  &:hover{
+    background-color: #382110;
+    color: white;
   }
 }
 

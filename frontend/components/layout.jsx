@@ -6,7 +6,7 @@ import Splash from './splash';
 import Home from './home';
 import BookShowContainer from './book/book_show_container';
 import AddBookFormContainer from './book/add_book_form_container';
-
+import MyShelvesContainer from './shelves/my_shelves_container';
 
 
 const Layout = ({ currentUser }) => {
@@ -21,6 +21,7 @@ const Layout = ({ currentUser }) => {
           <Route exact path='/home' component={Home}/>
           <Route path='/books/:bookId' component={BookShowContainer}/>
           <Route exact path="/book/new" component={AddBookFormContainer}/>
+          <Route exact path="/shelves/:currShelf" component={MyShelvesContainer}/>
           <Redirect to="/home"/>
         </Switch>
       </div>
