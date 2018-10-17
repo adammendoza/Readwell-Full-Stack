@@ -8,7 +8,6 @@ const rootReducer = combineReducers({
   entities: entitiesReducer,
   session: sessionReducer,
   errors: errorsReducer,
-  router: routerReducer
 });
 
 export default rootReducer;

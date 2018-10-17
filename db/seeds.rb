@@ -8,8 +8,11 @@
 
 User.destroy_all
 Book.destroy_all
+Shelving.destroy_all
+Bookshelf.destroy_all
 
 demo = User.create(email:'demo@demosaregreat.com', name: 'Demo McDemoson', password: 'starwars');
+chris = User.create(email:'mcdonaldchristopherkevin@gmail.com', name: 'Chris McDonald', password: 'starwars');
 
 b1 = Book.create(title: "1984", author: 'George Orewell', isbn: '0451524934', genre: 'Science Fiction', year: 1949)
 f1 = File.open("#{Rails.root}/app/assets/images/1984.jpg")
@@ -34,3 +37,22 @@ b5.cover_img.attach(io: f5, filename: 'notes-from-underground.jpg')
 b6 = Book.create(title: "Infinite Jest", author: 'David Foster Wallace', isbn: '0316920045', genre: 'Fiction', year: 1996)
 f6 = File.open("#{Rails.root}/app/assets/images/jest.jpg")
 b6.cover_img.attach(io: f6, filename: 'jest.jpg')
+
+b7 = Book.create(title: "The Girl with the Dragon Tattoo", author: 'Stieg Larsson', isbn: '0307269752', genre: 'Mystery', year: 2005)
+f7 = File.open("#{Rails.root}/app/assets/images/dragon_tattoo.jpg")
+b7.cover_img.attach(io: f7, filename: 'dragon_tattoo.jpg')
+
+shelf1 = Bookshelf.create(name: "Read", creator_id: chris.id);
+shelf2 = Bookshelf.create(name: "Read", creator_id: demo.id);
+shelf3 = Bookshelf.create(name: "Want To Read", creator_id: chris.id);
+shelf4 = Bookshelf.create(name: "Want To Read", creator_id: demo.id);
+shelf5 = Bookshelf.create(name: "Currently Reading", creator_id: chris.id);
+shelf6 = Bookshelf.create(name: "Currently Reading", creator_id: demo.id);
+
+Shelving.create(book_id: b7.id, bookshelf_id: shelf1.id);
+Shelving.create(book_id: b3.id, bookshelf_id: shelf2.id);
+Shelving.create(book_id: b2.id, bookshelf_id: shelf3.id);
+Shelving.create(book_id: b6.id, bookshelf_id: shelf1.id);
+Shelving.create(book_id: b5.id, bookshelf_id: shelf6.id);
+Shelving.create(book_id: b4.id, bookshelf_id: shelf4.id);
+Shelving.create(book_id: b7.id, bookshelf_id: shelf4.id);

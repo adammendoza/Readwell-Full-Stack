@@ -10,7 +10,7 @@
 #
 
 class Bookshelf < ApplicationRecord
-  validates :name, :creator_id, presence: true
+  validates :name, presence: true
   validates_uniqueness_of :name, :scope => [:creator_id]
 
   belongs_to :creator,

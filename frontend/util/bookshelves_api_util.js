@@ -2,14 +2,14 @@ export const getBookshelves = () => (
   $.ajax({
     method: 'GET',
     url: 'api/bookshelves'
-  });
+  })
 );
 
 export const getBookshelf = bookshelfId => (
   $.ajax({
-    mehtod: 'GET',
-    url: `api/books/${bookshelfId}`
-  });
+    method: 'GET',
+    url: `api/bookshelves/${bookshelfId}`
+  })
 );
 
 export const postBookshelf = bookshelf => (
@@ -17,7 +17,7 @@ export const postBookshelf = bookshelf => (
     method: 'POST',
     url: 'api/bookshelves',
     data: { bookshelf }
-  });
+  })
 );
 
 export const updateBookshelf = bookshelf => (
@@ -25,12 +25,12 @@ export const updateBookshelf = bookshelf => (
     method: 'PUT',
     url: `api/bookshelves/${bookshelf.id}`,
     data: { bookshelf }
-  });
+  })
 );
 
 export const deleteBookshelf = bookshelfId => (
   $.ajax({
     method: 'DELETE',
     url: `api/bookshelves/${bookshelfId}`
-  });
+  })
 );

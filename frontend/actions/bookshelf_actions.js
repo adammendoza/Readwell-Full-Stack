@@ -1,20 +1,21 @@
-import * as BookshelfAPIUtil from '../util/bookshelf_api_util';
+import * as BookshelfAPIUtil from '../util/bookshelves_api_util';
 
-const RECEIVE_ALL_BOOKSHELVES = 'RECEIVE_ALL_BOOKSHELVES';
-const RECEIVE_BOOKSHELF = 'RECEIVE_BOOKSHELF';
-const RECEIVE_BOOKSHELF_ERRORS = 'RECEIVE_BOOKSHELF_ERRORS';
+export const RECEIVE_ALL_BOOKSHELVES = 'RECEIVE_ALL_BOOKSHELVES';
+export const RECEIVE_BOOKSHELF = 'RECEIVE_BOOKSHELF';
+export const RECEIVE_BOOKSHELF_ERRORS = 'RECEIVE_BOOKSHELF_ERRORS';
+export const REMOVE_BOOKSHELF = 'REMOVE_BOOKSHELF';
 
-const receiveBookshelf = bookshelf => {
+const receiveBookshelf = payload => {
   return {
     type: RECEIVE_BOOKSHELF,
-    bookshelf
+    payload
   };
 };
 
-const receiveAllBookshelves = bookshelves => {
+const receiveAllBookshelves = payload => {
   return {
       type: RECEIVE_ALL_BOOKSHELVES,
-      bookshelves
+      payload
   };
 };
 
@@ -25,14 +26,41 @@ const receiveBookshelfErrors = errors => {
   }
 };
 
-export const fetchAllBooks = () => dispatch => (
+const removeBookshelf = id => {
+  return {
+    type: REMOVE_BOOKSHELF,
+    id
+  }
+}
+
+export const fetchAllBookshelves = () => dispatch => (
   BookshelfAPIUtil.getBookshelves().then(bookshelves => (
     dispatch(receiveAllBookshelves(bookshelves))
   ))
 );
 
-export const fetchBook = id => dispatch => (
-  BookAPIUtil.getBook(id).then(book => (
-    dispatch(receiveBook(book))
+export const fetchBookshelf = id => dispatch => (
+  BookshelfAPIUtil.getBookshelf(id).then(bookshelf => (
+    dispatch(receiveBookshelf(bookshelf))
   ))
+);
+
+export const deleteBookshelf = id => (
+  BookshelfAPIUtil.deleteBookshelf(id).then(
+    bookshelves => dispatch(receiveAllBookshelves(bookshelves))
+  )
+);
+
+export const postBookshelf = bookshelf => (
+  BookshelfAPIUtil.postBookshelf(bookshelf).then(
+    bookshelf => dispatch(receiveBookshelf(bookshelf)),
+    errors => dispatch(receiveBookshelfErrors(errors))
+  )
+);
+
+export const updateBookshelf = bookshelf => (
+  BookshelfAPIUtil.updateBookshelf(bookshelf).then(
+    bookshelf => dispatch(receiveBookshelf(bookshelf)),
+    errors => dispatch(receiveBookshelfErrors(errors))
+  )
 );
