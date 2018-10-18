@@ -48,6 +48,7 @@ shelf3 = Bookshelf.create(name: "Want To Read", creator_id: chris.id);
 shelf4 = Bookshelf.create(name: "Want To Read", creator_id: demo.id);
 shelf5 = Bookshelf.create(name: "Currently Reading", creator_id: chris.id);
 shelf6 = Bookshelf.create(name: "Currently Reading", creator_id: demo.id);
+shelf6 = Bookshelf.create(name: "Very Special", creator_id: demo.id);
 
 Shelving.create(book_id: b7.id, bookshelf_id: shelf1.id);
 Shelving.create(book_id: b3.id, bookshelf_id: shelf2.id);

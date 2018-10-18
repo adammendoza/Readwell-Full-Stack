@@ -1,6 +1,8 @@
 import React from 'react';
 import BookshelfSidebar from './bookshelf_sidebar';
 import BookList from './book_list';
+import { Link } from 'react-router-dom';
+
 
 class MyShelves extends React.Component {
   constructor(props){
@@ -28,18 +30,21 @@ class MyShelves extends React.Component {
       bookIds = bookIds.filter(unique);
       currShelf = [{ bookIds }];
     }
-    debugger;
     return(
       <div className="my-shelves">
-        <h1>My Books</h1>
-        <BookshelfSidebar
-          match={this.props.match}
-          bookshelves={this.props.bookshelves}
-          updateBookshelf={this.props.updateBookshelf}
-          deleteBookshelf={this.props.deleteBookshelf}
-          postBookshelf={this.props.postBookshelf}/>
+        <div className="header-container">
+          <Link className="sidebar-header" to="/shelves/all">My Books</Link>
+        </div>
+        <div className="main-content-shelves">
+          <BookshelfSidebar
+            match={this.props.match}
+            bookshelves={this.props.bookshelves}
+            updateBookshelf={this.props.updateBookshelf}
+            deleteBookshelf={this.props.deleteBookshelf}
+            postBookshelf={this.props.postBookshelf}/>
 
-        <BookList books={this.props.books} currShelf={currShelf}/>
+          <BookList books={this.props.books} currShelf={currShelf}/>
+        </div>
       </div>
     );
   }

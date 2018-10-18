@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 
 class BookList extends React.Component {
@@ -12,9 +14,9 @@ class BookList extends React.Component {
     }
     const books = this.props.currShelf[0].bookIds.map(bookId => this.props.books[bookId]);
     const rows = books.map(book => (
-      <tr>
-        <td><img src={book.cover_img}/></td>
-        <td>{book.title}</td>
+      <tr key={book.id}>
+        <td><Link to={`/books/${book.id}`}><img src={book.cover_img}/></Link></td>
+        <td><Link to={`/books/${book.id}`}>{book.title}</Link></td>
         <td>{book.author}</td>
         <td>{book.genre}</td>
         <td>{book.year}</td>
