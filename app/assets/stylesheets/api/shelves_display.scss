@@ -20,6 +20,7 @@
 
   .header-container {
     width: 100%;
+    max-width: 812px;
     border-bottom: 1px solid rgb(235, 232, 213);
     padding-bottom: 15px;
 
@@ -33,7 +34,7 @@
 
   .main-content-shelves{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
 
     .shelves-sidebar {
@@ -45,6 +46,7 @@
       min-width: 170px;
 
       .add-shelf-form {
+        margin-top: 7px;
         padding-bottom: 10px;
         border-bottom: 1px solid rgb(235, 232, 213);
 
@@ -110,12 +112,14 @@
         border-bottom: 1px solid rgb(235, 232, 213);
         vertical-align: top;
       }
-
-
-
       img {
         width: 50px;
       }
+    }
+    h3 {
+      margin-top: 100px;
+      min-width: 500px;
+      text-align: center;
     }
   }
 }
