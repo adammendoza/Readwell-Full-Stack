@@ -5,7 +5,6 @@
   margin-top: 20px;
   margin-left: 20px;
   width:90%;
-  width: 90%;
 
   a {
     text-decoration: none;
@@ -36,6 +35,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    max-width: 812px;
 
     .shelves-sidebar {
       display: flex;
@@ -43,7 +43,8 @@
       margin: 10px;
       position: relative;
       right: 10px;
-      min-width: 170px;
+      flex-grow: 1;
+      max-width: 190px;
 
       .add-shelf-form {
         margin-top: 7px;
@@ -74,6 +75,19 @@
             font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
             line-height: 18px;
           }
+          input[type=text] {
+          padding: 4px 12px;
+          font-size: 11px;
+          font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+          border: 1px solid #D6D0C4;
+          border-radius: 3px;
+          background-color: #F4F1EA;
+
+            &:hover{
+              cursor: pointer;
+              background-color: #ede6d6;
+            }
+          }
         }
       }
     }
@@ -93,6 +107,7 @@
       margin: 20px 0 0 15px;
       border-collapse: collapse;
       table-layout: fixed;
+      flex-grow: 1;
 
       thead {
         font-weight: bold;
@@ -117,9 +132,9 @@
       }
     }
     h3 {
-      margin-top: 100px;
-      min-width: 500px;
+      margin-top: 30px;
       text-align: center;
+      flex-grow: 1;
     }
   }
 }
