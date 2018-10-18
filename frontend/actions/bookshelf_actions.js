@@ -1,4 +1,5 @@
 import * as BookshelfAPIUtil from '../util/bookshelves_api_util';
+import * as ShelvingAPIUtil from '../util/shelvings_api_util';
 
 export const RECEIVE_ALL_BOOKSHELVES = 'RECEIVE_ALL_BOOKSHELVES';
 export const RECEIVE_BOOKSHELF = 'RECEIVE_BOOKSHELF';
@@ -45,23 +46,29 @@ export const fetchBookshelf = id => dispatch => (
   ))
 );
 
-export const deleteBookshelf = id => (
+export const deleteBookshelf = id => dispatch => (
   BookshelfAPIUtil.deleteBookshelf(id).then(
     bookshelves => dispatch(receiveAllBookshelves(bookshelves))
   )
 );
 
-export const postBookshelf = bookshelf => {
-  
+export const postBookshelf = bookshelf => disptach => {
+
   return BookshelfAPIUtil.postBookshelf(bookshelf).then(
     bookshelf => dispatch(receiveBookshelf(bookshelf)),
     errors => dispatch(receiveBookshelfErrors(errors))
   )
 };
 
-export const updateBookshelf = bookshelf => (
+export const updateBookshelf = bookshelf => dispatch => (
   BookshelfAPIUtil.updateBookshelf(bookshelf).then(
     bookshelf => dispatch(receiveBookshelf(bookshelf)),
     errors => dispatch(receiveBookshelfErrors(errors))
+  )
+);
+
+export const postShelving = shelving => dispatch => (
+  ShelvingAPIUtil.postShelving(shelving).then(
+    bookshelf => (dispatch(receiveBookshelf(bookshelf)))
   )
 );

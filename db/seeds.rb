@@ -44,8 +44,8 @@ b7.cover_img.attach(io: f7, filename: 'dragon_tattoo.jpg')
 
 shelf1 = Bookshelf.create(name: "Read", creator_id: chris.id);
 shelf2 = Bookshelf.create(name: "Read", creator_id: demo.id);
-shelf3 = Bookshelf.create(name: "Want To Read", creator_id: chris.id);
-shelf4 = Bookshelf.create(name: "Want To Read", creator_id: demo.id);
+shelf3 = Bookshelf.create(name: "Want to Read", creator_id: chris.id);
+shelf4 = Bookshelf.create(name: "Want to Read", creator_id: demo.id);
 shelf5 = Bookshelf.create(name: "Currently Reading", creator_id: chris.id);
 shelf6 = Bookshelf.create(name: "Currently Reading", creator_id: demo.id);
 shelf6 = Bookshelf.create(name: "Very Special", creator_id: demo.id);

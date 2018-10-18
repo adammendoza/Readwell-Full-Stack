@@ -1,4 +1,5 @@
 import React from 'react';
+import ShelfButton from './shelf_button';
 
 class BookShowPage extends React.Component {
   constructor(props){
@@ -16,12 +17,19 @@ class BookShowPage extends React.Component {
   }
 
   render(){
-    const { book } = this.props;
+    const { book, postShelving, fetchAllBookshelves, bookshelves } = this.props;
     if (!book) return null;
 
     return (
       <div className="book-show-page">
-        <img src={book.cover_img}/>
+        <div>
+          <img src={book.cover_img}/>
+          <ShelfButton
+            book={book}
+            bookshelves={bookshelves}
+            postShelving={postShelving}
+            fetchAllBookshelves={fetchAllBookshelves}/>
+        </div>
 
         <div className="book-info">
           <h1>{book.title}</h1>
