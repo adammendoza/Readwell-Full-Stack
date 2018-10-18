@@ -43,6 +43,37 @@
       position: relative;
       right: 10px;
       min-width: 170px;
+
+      .add-shelf-form {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(235, 232, 213);
+
+        button {
+          margin-top: 8px;
+          padding: 4px 12px;
+          font-size: 11px;
+          font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+          border: 1px solid #D6D0C4;
+          border-radius: 3px;
+          background-color: #F4F1EA;
+
+          &:hover{
+            cursor: pointer;
+            background-color: #ede6d6;
+          }
+        }
+
+        form {
+          h3 {
+            font-weight: bold;
+            vertical-align: baseline;
+            font-size: 14px;
+            text-align: left;
+            font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            line-height: 18px;
+          }
+        }
+      }
     }
 
     .current {
