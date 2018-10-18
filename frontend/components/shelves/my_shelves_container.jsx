@@ -2,8 +2,9 @@ import { connect } from 'react-redux';
 import MyShelves from './my_shelves';
 import { fetchAllBookshelves, deleteBookshelf, postBookshelf, updateBookshelf } from '../../actions/bookshelf_actions';
 
-const mapStateTopProps = ({ entities }, ownProps) => {
+const mapStateTopProps = ({ entities, session }, ownProps) => {
   return {
+    currentUser: entities.users[session.id],
     books: entities.books,
     bookshelves: Object.values(entities.bookshelves)
   };

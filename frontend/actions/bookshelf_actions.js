@@ -51,12 +51,13 @@ export const deleteBookshelf = id => (
   )
 );
 
-export const postBookshelf = bookshelf => (
-  BookshelfAPIUtil.postBookshelf(bookshelf).then(
+export const postBookshelf = bookshelf => {
+  
+  return BookshelfAPIUtil.postBookshelf(bookshelf).then(
     bookshelf => dispatch(receiveBookshelf(bookshelf)),
     errors => dispatch(receiveBookshelfErrors(errors))
   )
-);
+};
 
 export const updateBookshelf = bookshelf => (
   BookshelfAPIUtil.updateBookshelf(bookshelf).then(

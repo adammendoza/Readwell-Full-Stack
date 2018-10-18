@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AddShelfButton from './add_shelf_button';
 
 class BookshelfSidebar extends React.Component {
   constructor(props){
@@ -36,6 +37,7 @@ class BookshelfSidebar extends React.Component {
           All ({total})
         </Link>
         {links}
+        <AddShelfButton postBookshelf={this.props.postBookshelf} currentUser={this.props.currentUser}/>
       </div>
     )
   }

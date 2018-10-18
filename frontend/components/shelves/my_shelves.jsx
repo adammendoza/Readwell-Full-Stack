@@ -41,7 +41,8 @@ class MyShelves extends React.Component {
             bookshelves={this.props.bookshelves}
             updateBookshelf={this.props.updateBookshelf}
             deleteBookshelf={this.props.deleteBookshelf}
-            postBookshelf={this.props.postBookshelf}/>
+            postBookshelf={this.props.postBookshelf}
+            currentUser={this.props.currentUser}/>
 
           <BookList books={this.props.books} currShelf={currShelf}/>
         </div>

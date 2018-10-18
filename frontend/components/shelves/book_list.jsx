@@ -12,6 +12,9 @@ class BookList extends React.Component {
     if(this.props.currShelf.length === 0){
       return null;
     }
+    if(this.props.currShelf[0].bookIds.length === 0){
+      return <h3>There are no books in here yet!</h3>
+    }
     const books = this.props.currShelf[0].bookIds.map(bookId => this.props.books[bookId]);
     const rows = books.map(book => (
       <tr key={book.id}>
