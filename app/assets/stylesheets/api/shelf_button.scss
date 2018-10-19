@@ -94,12 +94,25 @@
     }
   }
   .add-shelf-form{
-    margin-top: 7px;
-    padding-top: 4px;
+    margin-top: 10px;
+    padding-top: 7px;
     border-top: 1px solid lightgrey;
 
-    &:hover {
-      background-color: rgb(250, 250, 245);
+    button {
+
+      &:hover {
+        background-color: rgb(250, 250, 245);
+      }
     }
+
+    input[type=submit] {
+      margin-left: 2px;
+
+      &:hover {
+        background-color: rgb(250, 250, 245);
+        border-radius: 4px;
+      }
+    }
+
   }
 }
