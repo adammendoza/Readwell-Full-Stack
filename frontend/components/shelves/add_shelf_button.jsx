@@ -23,7 +23,8 @@ class AddShelfButton extends React.Component {
   }
 
   handleSubmit(e){
-    this.props.postBookshelf({name: this.state.name, creator_id: this.props.currentUser.id})
+    this.props.postBookshelf({name: this.state.name, creator_id: this.props.currentUser.id});
+    this.setState({ name: '' });
   }
 
   render(){
@@ -32,7 +33,7 @@ class AddShelfButton extends React.Component {
         {this.state.inputToggle &&
         <form onSubmit={this.handleSubmit}>
           <h3>Add Shelf</h3>
-          <input type="text" onChange={this.update} />
+          <input type="text" onChange={this.update} value={this.state.name} />
           <input type="submit" value="add"/>
         </form>}
 

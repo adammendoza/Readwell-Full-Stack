@@ -20,8 +20,9 @@ class Api::ShelvingsController < ApplicationController
   end
 
   def destroy
-    @shelving = Shelving.find_by(id: params[:id]);
-    @shelving.destroy
+    @shelving = Shelving.find_by(book_id: params[:shelving][:book_id], bookshelf_id: params[:shelving][:bookshelf_id]);
+    delete_shelving = Shelving.find_by(id: @shelving.id)
+    delete_shelving.delete
     @bookshelf = @shelving.bookshelf
     render :show
   end

@@ -120,19 +120,19 @@
 
 
   input[type=submit]{
-      border-radius: 3px;
-      border: 1px solid #D6D0C4;
-      font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
-      font-size: 14px;
-      cursor: pointer;
-      text-decoration: none;
-      line-height: 1;
-      padding: 8px 12px;
-      background-color: #F4F1EA;
-      margin-top: 20px;
+    border-radius: 3px;
+    border: 1px solid #D6D0C4;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    line-height: 1;
+    padding: 8px 12px;
+    background-color: #F4F1EA;
+    margin-top: 20px;
 
-      &:hover {
-        background-color: #ede6d6;
-      }
+    &:hover {
+      background-color: #ede6d6;
+    }
   }
 }

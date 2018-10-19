@@ -1,4 +1,5 @@
 import React from 'react';
+import AddShelfButton from '../shelves/add_shelf_button';
 
 class ShelfButton extends React.Component {
   constructor(props){
@@ -16,12 +17,13 @@ class ShelfButton extends React.Component {
     this.props.fetchAllBookshelves();
   }
 
+
   handleShelving(shelfName){
     let that = this;
     const bookShelf = this.props.bookshelves.filter(shelf => shelf.name === shelfName)[0];
     return e => {
       e.preventDefault();
-      that.props.postShelving({book_id: that.props.book.id, bookshelf_id: bookShelf.id}).then(() => that.props.fetchAllBookshelves());
+      that.props.postShelving({book_id: that.props.book.id, bookshelf_id: bookShelf.id});
     }
   }
 
@@ -29,7 +31,14 @@ class ShelfButton extends React.Component {
     let that = this;
     return e => {
       e.preventDefault();
-      that.props.postShelving({book_id: that.props.book.id, bookshelf_id: shelfId})
+      let currShelf = that.props.bookshelves.filter(shelf => shelf.id === shelfId);
+      if(currShelf[0].bookIds.includes(that.props.book.id)) {
+        debugger;
+        that.props.deleteShelving({book_id: that.props.book.id, bookshelf_id: currShelf[0].id});
+      } else {
+        debugger;
+        that.props.postShelving({book_id: that.props.book.id, bookshelf_id: shelfId});
+      }
     }
   }
 
@@ -66,29 +75,31 @@ class ShelfButton extends React.Component {
       return null;
     }
     const shelves = (
-      <div onMouseLeave={this.toggleDropOff} className="main-shelves">
+      <div className="main-shelves">
         <button onClick={this.handleShelving('Read')}>Read</button>
         <button onClick={this.handleShelving('Currently Reading')}>Currently Reading</button>
         <button onClick={this.handleShelving('Want to Read')}>Want to Read</button>
 
         {this.extraShelvesCheckboxes()}
+        <AddShelfButton postBookshelf={this.props.postBookshelf} currentUser={this.props.currentUser}/>
       </div>
     );
     let mainButton = <button onClick={this.handleShelving('Want to Read')} className="want-to-read-button">Want to Read</button>;
     let mainShelves = this.props.bookshelves.filter(shelf => ['Want to Read', 'Currently Reading', 'Read'].includes(shelf.name));
+
     mainShelves.forEach(shelf => {
       if (shelf.bookIds.includes(this.props.book.id)) {
         mainButton = <button className={`curr-shelf-button`} >{shelf.name}</button>;
       }
     });
+
     return(
       <div className="shelf-button">
         {mainButton}
 
-
         <div className="drop-button-list" >
           <button onMouseEnter={this.toggleDropOn} className="shelf-select-button"><span className="material-icons">arrow_drop_down</span></button>
-          {this.state.dropToggle && <div className="shelf-drop">
+          {this.state.dropToggle && <div onMouseLeave={this.toggleDropOff} className="shelf-drop">
             {shelves}
           </div>}
         </div>

@@ -17,7 +17,7 @@ class BookShowPage extends React.Component {
   }
 
   render(){
-    const { book, postShelving, fetchAllBookshelves, bookshelves } = this.props;
+    const { book, postShelving, postBookshelf, fetchAllBookshelves, bookshelves, currentUser, deleteShelving } = this.props;
     if (!book) return null;
 
     return (
@@ -28,7 +28,11 @@ class BookShowPage extends React.Component {
             book={book}
             bookshelves={bookshelves}
             postShelving={postShelving}
-            fetchAllBookshelves={fetchAllBookshelves}/>
+            fetchAllBookshelves={fetchAllBookshelves}
+            postBookshelf={postBookshelf}
+            currentUser={currentUser}
+            deleteShelving={deleteShelving}
+            />
         </div>
 
         <div className="book-info">

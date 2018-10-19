@@ -52,8 +52,7 @@ export const deleteBookshelf = id => dispatch => (
   )
 );
 
-export const postBookshelf = bookshelf => disptach => {
-
+export const postBookshelf = bookshelf => dispatch => {
   return BookshelfAPIUtil.postBookshelf(bookshelf).then(
     bookshelf => dispatch(receiveBookshelf(bookshelf)),
     errors => dispatch(receiveBookshelfErrors(errors))
@@ -67,8 +66,14 @@ export const updateBookshelf = bookshelf => dispatch => (
   )
 );
 
-export const postShelving = shelving => dispatch => (
-  ShelvingAPIUtil.postShelving(shelving).then(
+export const postShelving = shelving => dispatch => {
+  return ShelvingAPIUtil.postShelving(shelving).then(
     bookshelf => (dispatch(receiveBookshelf(bookshelf)))
   )
-);
+};
+
+export const deleteShelving = shelving => dispatch => {
+  return ShelvingAPIUtil.deleteShelving(shelving).then(
+    bookshelf => (dispatch(receiveBookshelf(bookshelf)))
+  )
+};

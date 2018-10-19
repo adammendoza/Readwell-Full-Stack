@@ -6,9 +6,10 @@ export const postShelving = shelving => {
   })
 };
 
-export const deleteShelving = id => (
-  $.ajax({
+export const deleteShelving = shelving => {
+  return $.ajax({
     method: 'DELETE',
-    url: `api/shelvings/${id}`
+    url: `api/shelvings`,
+    data: { shelving }
   })
-);
+};
