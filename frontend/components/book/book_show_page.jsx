@@ -22,7 +22,7 @@ class BookShowPage extends React.Component {
 
     return (
       <div className="book-show-page">
-        <div>
+        <div className="show-left">
           <img src={book.cover_img}/>
           <ShelfButton
             book={book}

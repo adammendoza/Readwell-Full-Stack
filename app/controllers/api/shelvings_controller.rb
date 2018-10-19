@@ -4,7 +4,7 @@ class Api::ShelvingsController < ApplicationController
     if @shelving.save
       if ['Want to Read', 'Read', 'Currently Reading'].include?(@shelving.bookshelf.name)
         current_user.owned_bookshelves.each do |shelf|
-          next if @shelving.bookshelf.name == shelf.name
+          next if @shelving.bookshelf.name == shelf.name || !(['Want to Read', 'Read', 'Currently Reading'].include?(shelf.name))
           shelf.shelvings.each do |prev_shelving|
             if prev_shelving.book_id == @shelving.book_id
               prev_shelving.destroy

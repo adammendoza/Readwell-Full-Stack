@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root.jsx';
-import { fetchAllBookshelves, fetchBookshelf, postBookshelf, updateBookshelf, deleteBookshelf } from './actions/bookshelf_actions';
 
 document.addEventListener('DOMContentLoaded', () =>{
   const root = document.getElementById('root');
@@ -19,14 +18,6 @@ document.addEventListener('DOMContentLoaded', () =>{
   } else {
     store = configureStore();
   }
-  // TEST #TODO
-  window.dispatch = store.dispatch;
-  window.fetchAllBookshelves = fetchAllBookshelves;
-  window.fetchBookshelf = fetchBookshelf;
-  window.postBookshelf = postBookshelf;
-  window.updateBookshelf = updateBookshelf;
-  window.deleteBookshelf = deleteBookshelf;
-  // #NB
 
   ReactDOM.render(<Root store={store} />, root);
 });

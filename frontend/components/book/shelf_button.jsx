@@ -50,7 +50,7 @@ class ShelfButton extends React.Component {
     let checkboxes = [];
     let bookshelves = this.props.bookshelves;
     for (let i = 3; i < bookshelves.length; i++){
-      checkboxes.push(<div key={bookshelves[i].id}>
+      checkboxes.push(<div key={bookshelves[i].id} className="check-row" onClick={this.handleCheck(bookshelves[i].id)}>
         <input
           type="checkbox"
           onChange={this.handleCheck(bookshelves[i].id)}
@@ -66,7 +66,7 @@ class ShelfButton extends React.Component {
       return null;
     }
     const shelves = (
-      <div onMouseLeave={this.toggleDropOff}>
+      <div onMouseLeave={this.toggleDropOff} className="main-shelves">
         <button onClick={this.handleShelving('Read')}>Read</button>
         <button onClick={this.handleShelving('Currently Reading')}>Currently Reading</button>
         <button onClick={this.handleShelving('Want to Read')}>Want to Read</button>
@@ -78,17 +78,20 @@ class ShelfButton extends React.Component {
     let mainShelves = this.props.bookshelves.filter(shelf => ['Want to Read', 'Currently Reading', 'Read'].includes(shelf.name));
     mainShelves.forEach(shelf => {
       if (shelf.bookIds.includes(this.props.book.id)) {
-        mainButton = <button className={`shelf-${shelf.name}`} >{shelf.name}</button>;
+        mainButton = <button className={`curr-shelf-button`} >{shelf.name}</button>;
       }
     });
     return(
-      <div>
+      <div className="shelf-button">
         {mainButton}
 
-        <button onMouseEnter={this.toggleDropOn} className="shelf-select-button material-icons">arrow_drop_down</button>
-        {this.state.dropToggle && <div className="shelf-drop">
-          {shelves}
-        </div>}
+
+        <div className="drop-button-list" >
+          <button onMouseEnter={this.toggleDropOn} className="shelf-select-button"><span className="material-icons">arrow_drop_down</span></button>
+          {this.state.dropToggle && <div className="shelf-drop">
+            {shelves}
+          </div>}
+        </div>
       </div>
     )
   }
