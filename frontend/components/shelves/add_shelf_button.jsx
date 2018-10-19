@@ -23,6 +23,7 @@ class AddShelfButton extends React.Component {
   }
 
   handleSubmit(e){
+    e.preventDefault();
     this.props.postBookshelf({name: this.state.name, creator_id: this.props.currentUser.id});
     this.setState({ name: '' });
   }

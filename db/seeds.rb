@@ -66,14 +66,40 @@ b13 = Book.create(title: "Angle of Repose", author: 'Wallace Stegner', isbn: '01
 f13 = File.open("#{Rails.root}/app/assets/images/repose.jpg")
 b13.cover_img.attach(io: f13, filename: 'repose.jpg')
 
+b14 = Book.create(title: "Green Eggs and Ham", author: 'Dr. Seuss', isbn: '0394800168', genre: 'Childrens', year: 1960)
+f14 = File.open("#{Rails.root}/app/assets/images/green_eggs.jpg")
+b14.cover_img.attach(io: f14, filename: 'green_eggs.jpg')
+
+b15 = Book.create(title: "How the Grinch Stole Christmas", author: 'Dr. Seuss', isbn: '0007173040', genre: 'Childrens', year: 1957)
+f15 = File.open("#{Rails.root}/app/assets/images/grinch.jpg")
+b15.cover_img.attach(io: f15, filename: 'grinch.jpg')
+
+b16 = Book.create(title: "The Lorax", author: 'Dr. Seuss', isbn: '0679889108', genre: 'Childrens', year: 1971)
+f16 = File.open("#{Rails.root}/app/assets/images/lorax.jpg")
+b16.cover_img.attach(io: f16, filename: 'lorax.jpg')
+
+b17 = Book.create(title: "A Heartbreaking Work of Staggering Genius", author: 'Dave Eggers', isbn: '0375725784', genre: 'Memoir', year: 2000)
+f17 = File.open("#{Rails.root}/app/assets/images/nogenius.jpg")
+b17.cover_img.attach(io: f17, filename: 'nogenius.jpg')
+
+b18 = Book.create(title: "Gone Girl", author: 'Gillian Flynn', isbn: '0307588378', genre: 'Mystery', year: 2012)
+f18 = File.open("#{Rails.root}/app/assets/images/gonegirl.jpg")
+b18.cover_img.attach(io: f18, filename: 'gonegirl.jpg')
+
+b19 = Book.create(title: "Catch-22", author: 'Joseph Heller', isbn: '0684833395', genre: 'Humor', year: 1961)
+f19 = File.open("#{Rails.root}/app/assets/images/catch.jpg")
+b19.cover_img.attach(io: f19, filename: 'catch.jpg')
+
 shelf1 = Bookshelf.create(name: "Read", creator_id: chris.id);
 shelf2 = Bookshelf.create(name: "Read", creator_id: demo.id);
 shelf3 = Bookshelf.create(name: "Want to Read", creator_id: chris.id);
 shelf4 = Bookshelf.create(name: "Want to Read", creator_id: demo.id);
 shelf5 = Bookshelf.create(name: "Currently Reading", creator_id: chris.id);
 shelf6 = Bookshelf.create(name: "Currently Reading", creator_id: demo.id);
-shelf7 = Bookshelf.create(name: "Books with brooms", creator_id: demo.id);
-shelf8 = Bookshelf.create(name: "Read if free", creator_id: demo.id);
+shelf7 = Bookshelf.create(name: "Books with Brooms", creator_id: demo.id);
+shelf8 = Bookshelf.create(name: "Avoid", creator_id: demo.id);
+shelf9 = Bookshelf.create(name: "Theo Geisel", creator_id: demo.id);
+shelf10 = Bookshelf.create(name: "Best Book Ever", creator_id: demo.id);
 
 Shelving.create(book_id: b7.id, bookshelf_id: shelf1.id);
 Shelving.create(book_id: b3.id, bookshelf_id: shelf2.id);
@@ -88,3 +114,7 @@ Shelving.create(book_id: b10.id, bookshelf_id: shelf7.id);
 Shelving.create(book_id: b11.id, bookshelf_id: shelf7.id);
 Shelving.create(book_id: b12.id, bookshelf_id: shelf7.id);
 Shelving.create(book_id: b13.id, bookshelf_id: shelf2.id);
+Shelving.create(book_id: b14.id, bookshelf_id: shelf9.id);
+Shelving.create(book_id: b15.id, bookshelf_id: shelf9.id);
+Shelving.create(book_id: b16.id, bookshelf_id: shelf9.id);
+Shelving.create(book_id: b17.id, bookshelf_id: shelf8.id);
