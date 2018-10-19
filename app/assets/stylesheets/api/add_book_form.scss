@@ -13,6 +13,8 @@
       padding: 10px;
       position: relative;
       bottom: 10px;
+      display: flex;
+      flex-direction: column;
 
       p {
         margin: 1px;
@@ -20,12 +22,14 @@
 
       .book-image-preview {
         margin-top: 10px;
-       width: 115px;
-       margin-left: auto;
-       margin-right: auto;
-       height: 180px;
-       bottom: 0;
-       box-shadow: 1px 1px 1px grey;
+        width: 115px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 180px;
+        bottom: 0;
+        box-shadow: 1px 1px 1px grey;
+        position: relative;
+        right: 60px;
 
      }
     }

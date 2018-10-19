@@ -12,8 +12,8 @@ class Api::ShelvingsController < ApplicationController
           end
         end
       end
-      @bookshelf = @shelving.bookshelf
-      render :show
+      @bookshelves = current_user.owned_bookshelves
+      render :index
     else
       render json: @shelving.errors.full_messages, status: 422
     end
@@ -21,13 +21,15 @@ class Api::ShelvingsController < ApplicationController
 
   def destroy
     @shelving = Shelving.find_by(book_id: params[:shelving][:book_id], bookshelf_id: params[:shelving][:bookshelf_id]);
-    delete_shelving = Shelving.find_by(id: @shelving.id)
-    delete_shelving.delete
-    @bookshelf = @shelving.bookshelf
-    render :show
+    debugger;
+    @shelving.destroy
+    @bookshelves = current_user.owned_bookshelves
+    render :index
   end
 
-  def edit
+  def index
+    @bookshelves = current_user.owned_bookshelves
+    render :index
   end
 
   private

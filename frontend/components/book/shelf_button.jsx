@@ -17,6 +17,9 @@ class ShelfButton extends React.Component {
     this.props.fetchAllBookshelves();
   }
 
+  compnentWillReceiveProps(nextProps) {
+    debugger;
+  }
 
   handleShelving(shelfName){
     let that = this;
@@ -31,12 +34,10 @@ class ShelfButton extends React.Component {
     let that = this;
     return e => {
       e.preventDefault();
-      let currShelf = that.props.bookshelves.filter(shelf => shelf.id === shelfId);
-      if(currShelf[0].bookIds.includes(that.props.book.id)) {
-        debugger;
-        that.props.deleteShelving({book_id: that.props.book.id, bookshelf_id: currShelf[0].id});
+      let currShelf = that.props.bookshelves.filter(shelf => shelf.id === shelfId)[0];
+      if(currShelf.bookIds.includes(that.props.book.id)) {
+        that.props.deleteShelving({book_id: that.props.book.id, bookshelf_id: currShelf.id});
       } else {
-        debugger;
         that.props.postShelving({book_id: that.props.book.id, bookshelf_id: shelfId});
       }
     }
