@@ -68,12 +68,12 @@ export const updateBookshelf = bookshelf => dispatch => (
 
 export const postShelving = shelving => dispatch => {
   return ShelvingAPIUtil.postShelving(shelving).then(
-    bookshelf => (dispatch(receiveBookshelf(bookshelf)))
+    bookshelves => (dispatch(receiveAllBookshelves(bookshelves)))
   )
 };
 
 export const deleteShelving = shelving => dispatch => {
   return ShelvingAPIUtil.deleteShelving(shelving).then(
-    bookshelf => (dispatch(receiveBookshelf(bookshelf)))
+    bookshelves => (dispatch(receiveAllBookshelves(bookshelves)))
   )
 };

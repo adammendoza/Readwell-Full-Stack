@@ -18,7 +18,7 @@ class ShelfButton extends React.Component {
   }
 
   compnentWillReceiveProps(nextProps) {
-    debugger;
+    
   }
 
   handleShelving(shelfName){
