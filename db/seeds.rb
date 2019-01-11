@@ -10,6 +10,7 @@ User.destroy_all
 Book.destroy_all
 Shelving.destroy_all
 Bookshelf.destroy_all
+Review.destroy_all
 
 demo = User.create(email:'demo@demosaregreat.com', name: 'Demo McDemoson', password: 'starwars');
 chris = User.create(email:'mcdonaldchristopherkevin@gmail.com', name: 'Chris McDonald', password: 'starwars');
@@ -89,6 +90,8 @@ b18.cover_img.attach(io: f18, filename: 'gonegirl.jpg')
 b19 = Book.create(title: "Catch-22", author: 'Joseph Heller', isbn: '0684833395', genre: 'Humor', year: 1961)
 f19 = File.open("#{Rails.root}/app/assets/images/catch.jpg")
 b19.cover_img.attach(io: f19, filename: 'catch.jpg')
+
+r1 = Review.create(title: "Great!", body: "I loved this book. A+", reviewer: chris.id, rating: 5, book_id: b19.id)
 
 shelf1 = Bookshelf.create(name: "Read", creator_id: chris.id);
 shelf2 = Bookshelf.create(name: "Read", creator_id: demo.id);
