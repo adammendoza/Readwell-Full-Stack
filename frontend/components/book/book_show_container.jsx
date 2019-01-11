@@ -5,7 +5,7 @@ import { fetchAllBookshelves, postBookshelf, postShelving, deleteShelving } from
 
 const mapStateTopProps = ({ entities, session }, ownProps) => {
   const book = entities.books[ownProps.match.params.bookId];
-  const bookshelves = Object.values(entities.bookshelves)
+  const bookshelves = Object.values(entities.bookshelves);
   return { book, bookshelves, currentUser: entities.users[session.id] };
 };
 

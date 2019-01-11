@@ -1,5 +1,6 @@
 import React from 'react';
 import ShelfButton from './shelf_button';
+import Reviews from '../reviews/reviews.jsx';
 
 class BookShowPage extends React.Component {
   constructor(props){
@@ -46,6 +47,10 @@ class BookShowPage extends React.Component {
           <h3>Genre</h3>
           <p>{book.genre}</p>
         </div>
+
+        <Reviews 
+          reviews={book.reviews}
+        />
       </div>
     );
   }
