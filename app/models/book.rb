@@ -25,4 +25,8 @@ class Book < ApplicationRecord
   has_many :bookshelves,
   through: :shelvings,
   source: :bookshelf
+
+  has_many :reviews,
+  foreign_key: :book_id,
+  class_name: :Review
 end
